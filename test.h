@@ -12,7 +12,7 @@
 #define NUMP2 16
 #define DER -0.5
 #define B 0
-#define NUM_DIST 30
+#define NUM_DIST 32
 #define NUMP_DIST 16
 #define ORDER 4
 

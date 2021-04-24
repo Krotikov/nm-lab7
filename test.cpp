@@ -68,14 +68,14 @@ void TestDisturb(double(*funcSol)(double), double(*funcR)(double, double, double
 
   double lbord = LBORD;
   double rbord = RBORD;
-  double dx = pow(10, 0.25);
-  double dist = 1;
+  double dx = pow(0.1, 0.25);
+  double dist = 0.1;
 
-  for (size_t i = 0; i < num; ++i, dist /= dx) {
+  for (size_t i = 0; i < num; ++i, dist *= dx) {
     size_t numNods = NUMP_DIST;
     GridFunc grid(lbord, rbord, numNods, funcSol);
 
-    double y0 = grid.points[0].y - dist;
+    double y0 = grid.points[0].y + dist;
     CauchyMod sol = ShootMetMod(grid, funcR, B, y0);
 
     double err = sol.MaxErr();
